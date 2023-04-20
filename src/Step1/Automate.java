@@ -1,6 +1,7 @@
 package Step1;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,10 +20,15 @@ public class Automate {
         System.out.println("__________Start__________");
         printGoods();
         coins=0;
-        System.out.println("Монет на сумму:"+coins);
-        System.out.printf("%s - %s%n%s - %s%n",">a","Закинуть монет",">q","Выйти");
-        coins = Integer.parseInt(retrieveCoins());
-        System.out.println("Your coins:" + coins);
+        String com=qOrA();
+        if(com.equals("a")) {
+            coins = Integer.parseInt(retrieveCoins());
+            System.out.println("Your coins:" + coins);
+        }
+        else
+        {
+            System.out.println("__________End__________");
+        }
 
     }
 
@@ -55,5 +61,18 @@ public class Automate {
        {
            System.out.printf("[%s] - %s%n",entry.getKey(),entry.getValue());
        }
+    }
+    private String qOrA()
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.println("Монет на сумму:"+coins);
+        System.out.printf("%s - %s%n%s - %s%n",">a","Закинуть монет",">q","Выйти");
+        String command=in.nextLine().toLowerCase(Locale.ROOT);
+        while(!command.equals("a")&&!command.equals("q"))
+        {
+            System.out.println("Неправильное значение!Введите заново:");
+            command=in.nextLine();
+        }
+        return command;
     }
 }
