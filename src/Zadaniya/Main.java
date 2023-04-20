@@ -1,4 +1,4 @@
-package Step1;
+package Zadaniya;
 
 public class Main {
     public static void main(String[] args)

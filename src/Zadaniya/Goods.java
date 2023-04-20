@@ -1,4 +1,4 @@
-package Step1;
+package Zadaniya;
 
 import java.util.*;
 
